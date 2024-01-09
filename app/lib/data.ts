@@ -16,14 +16,13 @@ export async function fetchRevenue() {
   noStore();
 
   try {
+    console.log('Fetching revenue data...');
+
     // Artificially delay a response for demo purposes.
     // Don't do this in production :)
-
-    console.log('Fetching revenue data...');
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    //await new Promise((resolve) => setTimeout(resolve, 1000));
 
     const data = await sql<Revenue>`SELECT * FROM revenue`;
-
     console.log('revenue data fetch completed after 1 second.');
 
     return data.rows;
@@ -37,11 +36,11 @@ export async function fetchLatestInvoices() {
   noStore();
 
   try {
+    console.log('Fetching latest invoices...');
+
     // Artificially delay a response for demo purposes.
     // Don't do this in production :)
-
-    console.log('Fetching latest invoices...');
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    //await new Promise((resolve) => setTimeout(resolve, 2000));
 
     const data = await sql<LatestInvoiceRaw>`
       SELECT invoices.amount, customers.name, customers.image_url, customers.email, invoices.id
